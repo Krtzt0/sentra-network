@@ -1,8 +1,10 @@
-<!-- about.html -->
+<!-- pages/main.html -->
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8" />
 
   <meta
@@ -10,44 +12,47 @@
     content="width=device-width, initial-scale=1.0"
   />
 
-  <title>ABOUT S.E.N.T.R.A</title>
+  <title>S.E.N.T.R.A MAIN</title>
 
   <!-- FONT -->
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@400;500;700;800&display=swap"
-    rel="stylesheet"
-  />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+  >
 
-    <!-- CSS -->
-  <link
+   <!-- CSS -->   
+     <link
     rel="stylesheet"
-    href="css/about.css"
+    href="css/main.css"
   />
-  
 </head>
-
-
 <body>
+
+  <!-- BG -->
+
+  <div class="background"></div>
+
+  <img
+    src="../assets/wave.png"
+    class="wave-bg"
+    alt=""
+  />
 
   <!-- TOPBAR -->
 
   <header class="topbar">
 
-    <!-- LEFT -->
     <div class="top-left">
 
       <img
         src="../assets/main-logo.png"
-        alt=""
         class="top-logo"
+        alt=""
       />
 
       <div class="top-info">
@@ -64,7 +69,8 @@
 
     </div>
 
-    <!-- RIGHT -->
+    <!-- NAV -->
+
     <nav class="top-nav">
 
       <div class="nav-group">
@@ -118,70 +124,194 @@
     </nav>
 
   </header>
-  <!-- MOBILE MENU BUTTON -->
 
-<button
-  class="mobile-menu-btn"
-  id="mobileMenuBtn"
->
-  ☰
-</button>
+  <!-- MOBILE -->
 
-<!-- MOBILE SIDEBAR -->
+  <button
+    class="mobile-menu-btn"
+    id="mobileMenuBtn"
+  >
+    ☰
+  </button>
 
-<div
-  class="mobile-sidebar"
-  id="mobileSidebar"
->
+  <div
+    class="mobile-sidebar"
+    id="mobileSidebar"
+  >
 
-  <div class="mobile-sidebar-header">
+    <div class="mobile-sidebar-header">
 
-    <img
-      src="../assets/main-logo.png"
-      class="mobile-sidebar-logo"
-      alt=""
-    />
+      <img
+        src="../assets/main-logo.png"
+        class="mobile-sidebar-logo"
+        alt=""
+      />
 
-    <div>
+      <div>
 
-      <h2 class="mobile-sidebar-title">
-        S.E.N.T.R.A
-      </h2>
+        <h2 class="mobile-sidebar-title">
+          S.E.N.T.R.A
+        </h2>
 
-      <p class="mobile-sidebar-subtitle">
-        NETWORK SYSTEM
-      </p>
+        <p class="mobile-sidebar-sub">
+          NETWORK SYSTEM
+        </p>
+
+      </div>
 
     </div>
 
+    <nav class="mobile-nav">
+
+      <a href="main.html">หน้าหลัก</a>
+
+      <a href="about.html">เกี่ยวกับ</a>
+
+      <a href="#">ภัยคุกคาม</a>
+
+      <a href="#">เจ้าหน้าที่</a>
+
+      <a href="#">รายงาน</a>
+
+      <a href="#">วิจัย</a>
+
+      <a href="map.html">แผนที่</a>
+
+      <a href="../index.html">
+        Logout
+      </a>
+
+    </nav>
+
   </div>
 
-  <nav class="mobile-nav">
+  <div
+    class="mobile-overlay"
+    id="mobileOverlay"
+  ></div>
 
-    <a href="main.html">หน้าหลัก</a>
-    <a href="about.html">เกี่ยวกับ</a>
-    <a href="#">ภัยคุกคาม</a>
-    <a href="#">เจ้าหน้าที่</a>
-    <a href="#">รายงาน</a>
-    <a href="#">วิจัย</a>
-    <a href="map.html">แผนที่</a>
+  <!-- MAIN -->
 
-  </nav>
+  <section class="main-section">
 
-</div>
+    <div class="main-content">
 
-<!-- OVERLAY -->
+      <h1 class="hero-title">
+        GLOBAL RUST MONITORING <br>
+        SYSTEM
+      </h1>
 
-<div
-  class="mobile-overlay"
-  id="mobileOverlay"
-></div>
+      <!-- DASHBOARD -->
 
- 
+      <div class="dashboard">
 
+        <!-- LEFT -->
 
-  <script src="../script.js"></script>
+        <div>
+
+          <h2 class="panel-title">
+            GLOBAL STATUS
+          </h2>
+
+          <div class="panel-line"></div>
+
+          <div class="panel-content">
+
+            <p>
+              Threat Level : ELEVATED
+            </p>
+
+            <p>
+              Active Rustborn : 241
+            </p>
+
+            <p>
+              Rust Zones : 08
+            </p>
+
+            <p>
+              Missing Gears : 06
+            </p>
+
+            <p>
+              Active Operations : 19
+            </p>
+
+          </div>
+
+        </div>
+
+        <!-- CENTER -->
+
+        <div class="divider-line"></div>
+
+        <!-- RIGHT -->
+
+        <div>
+
+          <h2 class="panel-title">
+            LATEST INCIDENT REPORTS
+          </h2>
+
+          <div class="panel-line"></div>
+
+          <div class="panel-content">
+
+            <p>
+              [03:14 UTC] <br>
+              Stage IV Corrosion Detected <br>
+              Neo Tokyo Sector-09
+            </p>
+
+            <p>
+              [01:42 UTC] <br>
+              Illegal Chris-Gear Trade Activity
+            </p>
+
+            <p>
+              Eastern Europe Division
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- NOTICE -->
+
+      <div class="notice-box">
+
+        <img
+            src="../assets/lock-icon.png"
+            class="notice-icon"
+            alt=""
+          />
+
+        <div>
+
+          <h2 class="notice-title">
+            CLASSIFIED NOTICE
+          </h2>
+
+          <p class="notice-text">
+
+            Some files require ALPHA clearance,
+            Unauthorized access will be logged
+            and investigated.
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
   
+<script src="../script.js"></script>
 
 </body>
 </html>
