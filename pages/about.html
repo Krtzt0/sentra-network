@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>ABOUT S.E.N.T.R.A</title>
+
+  <!-- FONT -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;800&family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --white:#ffffff;
+      --line:rgba(255,255,255,.14);
+      --soft:rgba(255,255,255,.72);
+      --bg:#000000;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      background:#000;
+      color:white;
+      overflow-x:hidden;
+
+      font-family:"Kanit",sans-serif;
+    }
+
+    /* ========================= */
+    /* BG */
+    /* ========================= */
+
+    body::before{
+
+      content:"";
+
+      position:fixed;
+      inset:0;
+
+      background-image:
+        radial-gradient(rgba(255,255,255,.05) 1px, transparent 1px);
+
+      background-size:18px 18px;
+
+      opacity:.08;
+
+      pointer-events:none;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 12%,
+          black 88%,
+          transparent
+        );
+    }
+
+    /* ========================= */
+    /* TOPBAR */
+    /* ========================= */
+
+    .topbar{
+
+      position:fixed;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:92px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:0 38px;
+
+      background:
+        rgba(0,0,0,.96);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.14);
+
+      backdrop-filter:blur(10px);
+
+      z-index:9999;
+    }
+
+    .topbar::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:-1px;
+
+      width:100%;
+      height:1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(255,255,255,.25),
+          transparent
+        );
+    }
+
+    /* LEFT */
+
+    .top-left{
+
+      display:flex;
+      align-items:center;
+
+      gap:16px;
+    }
+
+    .top-logo{
+
+      width:52px;
+      height:52px;
+
+      object-fit:contain;
+    }
+
+    .top-info{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .network-title{
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:18px;
+      font-weight:700;
+
+      letter-spacing:1px;
+
+      line-height:1;
+    }
+
+    .network-subtitle{
+
+      font-size:12px;
+
+      color:
+        rgba(255,255,255,.76);
+
+      margin-top:4px;
+    }
+
+    /* NAV */
+
+    .top-nav{
+      display:flex;
+      align-items:center;
+    }
+
+    .nav-group{
+
+      display:flex;
+      align-items:center;
+
+      gap:24px;
+    }
+
+    .nav-link{
+
+      color:
+        rgba(255,255,255,.62);
+
+      text-decoration:none;
+
+      font-size:14px;
+      font-weight:500;
+
+      transition:.25s;
+    }
+
+    .nav-link:hover{
+      color:white;
+    }
+
+    .nav-link.active{
+
+      color:white;
+
+      font-weight:700;
+    }
+
+    .nav-divider{
+
+      width:1px;
+      height:18px;
+
+      background:
+        rgba(255,255,255,.34);
+    }
+
+    /* ========================= */
+    /* SECTION */
+    /* ========================= */
+
+    section{
+
+      min-height:100vh;
+
+      padding:
+        150px
+        80px
+        80px;
+
+      position:relative;
+    }
+
+    /* ========================= */
+    /* ABOUT */
+    /* ========================= */
+
+    .about-layout{
+
+      display:grid;
+
+      grid-template-columns:
+        minmax(620px, 760px)
+        1fr;
+
+      gap:120px;
+
+      align-items:start;
+    }
+
+    /* LEFT */
+
+    .about-left{
+      position:relative;
+    }
+
+    .hero-top{
+
+      display:flex;
+      align-items:flex-start;
+
+      gap:28px;
+
+      margin-bottom:34px;
+    }
+
+    .hero-logo{
+      width:130px;
+      object-fit:contain;
+    }
+
+    .hero-title{
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:88px;
+      font-weight:800;
+
+      line-height:.9;
+
+      letter-spacing:4px;
+    }
+
+    /* MAIN FRAME */
+
+    .frame-box{
+
+      position:relative;
+
+      border:
+        1px solid rgba(255,255,255,.3);
+
+      border-radius:20px;
+
+      overflow:hidden;
+
+      background:black;
+    }
+
+    .frame-image{
+
+      width:100%;
+
+      display:block;
+
+      object-fit:cover;
+    }
+
+    /* FINGER */
+
+    .fingerprint-wrap{
+
+      position:absolute;
+
+      top:240px;
+      right:-10px;
+
+      width:180px;
+
+      z-index:2;
+    }
+
+    .fingerprint-img{
+
+      width:100%;
+
+      object-fit:contain;
+    }
+
+    /* BOTTOM STACK */
+
+    .about-stack{
+
+      margin-top:22px;
+
+      display:grid;
+
+      grid-template-columns:
+        240px
+        1fr;
+
+      gap:22px;
+    }
+
+    .small-frame{
+
+      border:
+        1px solid rgba(255,255,255,.22);
+
+      border-radius:16px;
+
+      overflow:hidden;
+
+      background:black;
+
+      min-height:260px;
+    }
+
+    .small-frame img{
+
+      width:100%;
+      height:100%;
+
+      object-fit:cover;
+
+      display:block;
+    }
+
+   /* ========================= */
+/* INFO PANEL */
+/* ========================= */
+
+.info-panel{
+
+  position:relative;
+
+  margin-top:20px;
+
+  width:100%;
+  max-width:760px;
+
+  justify-self:end;
+
+  border:
+    1px solid rgba(255,255,255,.22);
+
+  background:
+    rgba(0,0,0,.35);
+
+  padding:
+    44px
+    52px;
+
+  height:fit-content;
+
+  clip-path:polygon(
+    8% 0,
+    100% 0,
+    100% 92%,
+    92% 100%,
+    0 100%,
+    0 8%
+  );
+}
+
+/* CORNER */
+
+.info-panel::before,
+.info-panel::after{
+
+  content:"";
+
+  position:absolute;
+
+  width:26px;
+  height:26px;
+
+  border:4px solid white;
+}
+
+.info-panel::before{
+
+  top:26px;
+  left:26px;
+
+  border-right:none;
+  border-bottom:none;
+}
+
+.info-panel::after{
+
+  right:26px;
+  bottom:26px;
+
+  border-left:none;
+  border-top:none;
+}
+
+/* TITLE */
+
+.info-title{
+
+  font-family:'Orbitron',sans-serif;
+
+  font-size:24px;
+  font-weight:700;
+
+  line-height:1.5;
+
+  letter-spacing:1px;
+
+  margin-bottom:34px;
+
+  color:white;
+}
+
+/* TEXT */
+
+.info-text{
+
+  color:
+    rgba(255,255,255,.9);
+
+  line-height:1.7;
+
+  font-size:18px;
+
+  margin-bottom:34px;
+}
+
+/* LIST */
+
+.info-list{
+
+  display:flex;
+  flex-direction:column;
+
+  gap:28px;
+}
+
+.info-list li{
+
+  font-size:18px;
+
+  line-height:1.6;
+
+  margin-left:20px;
+
+  color:white;
+}
+
+    /* ========================= */
+    /* SECTION 2 */
+    /* ========================= */
+
+    .core-section{
+
+      padding-top:80px;
+    }
+
+    .core-title{
+
+      font-family:'Orbitron',sans-serif;
+
+      text-align:center;
+
+      font-size:88px;
+      font-weight:800;
+
+      letter-spacing:5px;
+
+      margin-bottom:70px;
+    }
+
+    .core-layout{
+
+  display:grid;
+
+  grid-template-columns:
+    .9fr
+    1.1fr;
+
+  gap:20px;
+
+  align-items:center;
+}
+
+    .core-panel{
+
+      border:
+        1px solid rgba(255,255,255,.28);
+
+      padding:54px;
+
+      clip-path:polygon(
+        10% 0,
+        100% 0,
+        100% 90%,
+        90% 100%,
+        0 100%,
+        0 10%
+      );
+    }
+
+    .core-text{
+
+      font-size:20px;
+
+      line-height:1.7;
+
+      color:
+        rgba(255,255,255,.92);
+
+      margin-bottom:34px;
+    }
+
+    .core-image{
+
+      width:100%;
+      max-width:560px;
+
+      margin:auto;
+
+      display:block;
+
+      object-fit:contain;
+    }
+
+    /* ========================= */
+    /* MOBILE */
+    /* ========================= */
+
+    @media(max-width:1200px){
+
+      .about-layout,
+      .core-layout{
+        grid-template-columns:1fr;
+      }
+
+      .fingerprint-wrap{
+        display:none;
+      }
+    }
+
+    @media(max-width:768px){
+
+      section{
+        padding:
+          130px
+          24px
+          60px;
+      }
+
+      .topbar{
+        padding:0 18px;
+      }
+
+      .top-nav{
+        display:none;
+      }
+
+      .hero-top{
+        flex-direction:column;
+      }
+
+      .hero-title{
+        font-size:54px;
+      }
+
+      .core-title{
+        font-size:52px;
+      }
+
+      .about-stack{
+        grid-template-columns:1fr;
+      }
+
+      .info-panel,
+      .core-panel{
+        padding:28px;
+      }
+
+      .info-title{
+        font-size:22px;
+      }
+
+      .info-text,
+      .info-list li,
+      .core-text{
+        font-size:16px;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- TOPBAR -->
+
+  <header class="topbar">
+
+    <div class="top-left">
+
+      <img
+        src="../assets/main-logo.png"
+        alt=""
+        class="top-logo"
+      />
+
+      <div class="top-info">
+
+        <h1 class="network-title">
+          S.E.N.T.R.A NETWORK
+        </h1>
+
+        <p class="network-subtitle">
+          International Threat Response System
+        </p>
+
+      </div>
+
+    </div>
+
+    <nav class="top-nav">
+
+      <div class="nav-group">
+
+        <span class="nav-divider"></span>
+
+        <a href="main.html" class="nav-link">
+          หน้าหลัก
+        </a>
+
+        <span class="nav-divider"></span>
+
+        <a href="about.html" class="nav-link active">
+          เกี่ยวกับ
+        </a>
+
+        <span class="nav-divider"></span>
+
+        <a href="#" class="nav-link">
+          ภัยคุกคาม
+        </a>
+
+        <span class="nav-divider"></span>
+
+        <a href="#" class="nav-link">
+          เจ้าหน้าที่
+        </a>
+
+        <span class="nav-divider"></span>
+
+        <a href="#" class="nav-link">
+          รายงาน
+        </a>
+
+        <span class="nav-divider"></span>
+
+        <a href="#" class="nav-link">
+          วิจัย
+        </a>
+
+        <span class="nav-divider"></span>
+
+        <a href="map.html" class="nav-link">
+          แผนที่
+        </a>
+
+        <span class="nav-divider"></span>
+
+      </div>
+
+    </nav>
+
+  </header>
+
+  <!-- SECTION 1 -->
+
+  <section>
+
+    <div class="about-layout">
+
+      <!-- LEFT -->
+
+      <div class="about-left">
+
+        <div class="hero-top">
+
+          <img
+            src="../assets/main-logo.png"
+            class="hero-logo"
+            alt=""
+          />
+
+          <h1 class="hero-title">
+            ABOUT <br>
+            S.E.N.T.R.A.
+          </h1>
+
+        </div>
+
+        <!-- MAIN -->
+
+        <div class="frame-box">
+
+          <img
+            src="../assets/5.png"
+            class="frame-image"
+            alt=""
+          />
+
+        </div>
+
+       
+
+        <!-- BOTTOM -->
+
+        <div class="about-stack">
+
+          <!-- ARMOR -->
+
+          <div class="small-frame">
+
+            <img
+              src="../assets/3.png"
+              alt=""
+            />
+
+          </div>
+
+          <!-- DNA -->
+
+          <div class="small-frame">
+
+            <img
+              src="../assets/4.png"
+              alt=""
+            />
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div class="info-panel">
+
+        <h2 class="info-title">
+          S.E.N.T.R.A — STRATEGIC ENFORCEMENT
+          OF NEUTRALIZING THREATS &
+          RUST ANOMALIES
+        </h2>
+
+        <p class="info-text">
+          การดำเนินการเชิงยุทธศาสตร์
+          เพื่อปราบปรามภัยคุกคาม
+          และความผิดปกติอาร์โก้
+        </p>
+
+        <p class="info-text">
+          องค์กรเริ่มก่อตั้งขึ้นเพื่อยับยั้งคดีอาชญากรรม
+          รวมถึงวิจัยแร่เอธ หรือคดีการร้าย
+          ที่เกี่ยวข้องโดยเฉพาะ
+        </p>
+
+        <ul class="info-list">
+
+          <li>
+            DRIFTER — มนุษย์ที่มีค่าความสอดคล้อง
+            กับแร่เอธ สามารถผสานพลังงานได้
+          </li>
+
+          <li>
+            AR-DRIVE — ชุดเกราะจักรกล
+            ที่ทำงานผ่านระบบวงจรควอนตัม
+          </li>
+
+          <li>
+            CHRIS GEAR — แกนพลังงานหลัก
+            สำหรับระบบยุทโธปกรณ์
+          </li>
+
+        </ul>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- SECTION 2 -->
+
+  <section class="core-section">
+
+    <h1 class="core-title">
+      AETHERNOX CORE
+    </h1>
+
+    <div class="core-layout">
+
+      <!-- LEFT -->
+
+      <div class="core-panel">
+
+        <p class="core-text">
+          ในอดีตมีภูเขาหินยักษ์ ภายหลังถูกเรียกว่า Aethernox Core 
+          ผลึกก้อนยักษ์นี้ได้หลับไหลอยู่ในถ้ำลึกโดยไม่ถูกค้นพบมานานนับหลายล้านปี 
+          จนเกิดเหตุระเบิดครั้งใหญ่ที่เรียกว่า The Shatterfall ผลึกหินก้อนยักษ์นั้นถูกพลังระเบิดที่รุนแรงกระทบจนแตก 
+          กาลเวลาพัดพาเศษผลึกชิ้นเล็กชิ้นน้อยกระจัดกระจายไปทั่วทั้งโลก และทำให้สิ่งมีชีวิตในโลกสูญพันธ์ไปเกือบ 95% 
+          โดยนักวิทย์ศาสตร์ต่างก็ตั้งสมุติฐานขึ้นมาต่าง ๆ นา ๆ ว่าสาเหตุที่เกิดการระเบิดนั้นอาจมาอุกาบาต 
+          บ้างก็สันนิษฐานว่าเกิดจากการเคลื่อนและการระเบิดของเปลือกโลก
+        </p>
+
+        <p class="core-text">
+          Aethernox Core นั้นมีพลังงานบางอย่างที่สามารถวิวัฒร่างกายสิ่งมีชีวิตให้มีพลังเหนือธรรมชาติในช่วงระยะเวลาหนึ่งได้ โดยรูปแบบของพลังนั้นจะขึ้นอยู่กับลักษณะเฉพาะหรือความรู้สึกนึกคิดของสิ่งมีชีวิตที่ถือครอง จนในยุคที่มนุษย์​วิวัฒนาการจนมีสติปัญญา ได้กำเนิดกลุ่มคนที่สามารถหาวิธีใช้พลังนั้นได้อย่างมีประสิทธิภาพ​มากที่สุด หลังจากนั้นแร่ Aeth จึงกลายเป็นทรัพยากร​ล้ำค่าและเป็นที่ต้องการของเหล่าประชากรโลกไปโดยปริยาย​​ แต่การ Trigger พลังนั้นได้จำเป็นต้องใช้แรงปนิทานที่แรงกล้าและความเข้ากันได้ดีระหว่างตัวผลึกและผู้ใช้ ไม่เช่นนั้นจะเกิดปฏิกิริยาที่เรียกว่า Oxidation ทำให้เจ้าของร่างเกิดปฏิกิริยา สนิม
+        </p>
+
+        <p class="core-text">
+          มนุษย์เริ่มพัฒนาอุปกรณ์
+          เพื่อควบคุมและดึงพลังงานดังกล่าว
+          มาใช้ในระบบทางทหารและการวิจัย
+        </p>
+
+      </div>
+
+      <!-- RIGHT -->
+
+      <div>
+
+        <img
+          src="../assets/6.png"
+          class="core-image"
+          alt=""
+        />
+
+      </div>
+
+    </div>
+
+  </section>
+
+</body>
+</html>
