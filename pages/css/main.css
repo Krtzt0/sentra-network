@@ -76,6 +76,8 @@ body{
 
   width:1400px;
 
+  max-width:none;
+
   transform:
     translate(-50%,-50%);
 
@@ -84,6 +86,8 @@ body{
   pointer-events:none;
 
   z-index:-1;
+
+  overflow:hidden;
 
   animation:
     waveBreath 8s ease-in-out infinite;
@@ -894,5 +898,103 @@ body{
   .network-title{
 
     font-size:11px;
+  }
+}
+
+/* ========================= */
+/* FIX MOBILE OVERFLOW */
+/* ========================= */
+
+html,
+body{
+
+  width:100%;
+  max-width:100%;
+
+  overflow-x:hidden;
+}
+
+body{
+  position:relative;
+}
+
+.main-section,
+.main-content{
+
+  width:100%;
+  max-width:100%;
+}
+
+.hero-title,
+.panel-content,
+.notice-text{
+
+  overflow-wrap:break-word;
+
+  word-break:break-word;
+}
+
+@media(max-width:768px){
+
+  .topbar{
+
+    width:100%;
+
+    left:0;
+
+    padding:
+      0
+      14px;
+  }
+
+  .main-section{
+
+    width:100%;
+
+    padding-left:16px;
+    padding-right:16px;
+
+    overflow:hidden;
+  }
+
+  .dashboard{
+
+    width:100%;
+
+    max-width:100%;
+
+    overflow:hidden;
+  }
+
+  .notice-box{
+
+    width:100%;
+
+    max-width:100%;
+  }
+
+  .wave-bg{
+
+    width:900px;
+
+    left:50%;
+
+    transform:
+      translate(-50%,-50%);
+  }
+
+  .mobile-menu-btn{
+
+    top:14px;
+    right:14px;
+
+    z-index:999999;
+  }
+
+  .mobile-sidebar{
+
+    width:250px;
+
+    max-width:80vw;
   }
 }
