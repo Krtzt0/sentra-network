@@ -2,15 +2,26 @@
 /* UTC CLOCK */
 /* ========================= */
 
-const utcClock = document.getElementById("utcClock");
+const utcClock =
+  document.getElementById("utcClock");
 
 function updateClock(){
 
+  if(!utcClock) return;
+
   const now = new Date();
 
-  const hours = String(now.getUTCHours()).padStart(2,"0");
-  const minutes = String(now.getUTCMinutes()).padStart(2,"0");
-  const seconds = String(now.getUTCSeconds()).padStart(2,"0");
+  const hours =
+    String(now.getUTCHours())
+    .padStart(2,"0");
+
+  const minutes =
+    String(now.getUTCMinutes())
+    .padStart(2,"0");
+
+  const seconds =
+    String(now.getUTCSeconds())
+    .padStart(2,"0");
 
   utcClock.textContent =
     `UTC ${hours}:${minutes}:${seconds}`;
@@ -28,6 +39,8 @@ const binaryLayer =
   document.getElementById("binaryLayer");
 
 function createBinary(){
+
+  if(!binaryLayer) return;
 
   const binary =
     document.createElement("span");
@@ -80,35 +93,72 @@ const users = [
 const loginBtn =
   document.getElementById("loginBtn");
 
-loginBtn.addEventListener("click",(e)=>{
+if(loginBtn){
 
-  e.preventDefault();
+  loginBtn.addEventListener("click",(e)=>{
 
-  const username =
-    document.getElementById("username").value;
+    e.preventDefault();
 
-  const password =
-    document.getElementById("password").value;
+    const username =
+      document.getElementById("username");
 
-  const user = users.find(u =>
-    u.username === username &&
-    u.password === password
-  );
+    const password =
+      document.getElementById("password");
 
-  if(user){
+    if(!username || !password) return;
 
-    // save fake session
-    localStorage.setItem(
-      "sentra_user",
-      JSON.stringify(user)
+    const user = users.find(u =>
+      u.username === username.value &&
+      u.password === password.value
     );
 
-    // redirect
-    window.location.href =
-      "pages/main.html";
+    if(user){
 
-  }else{
+      localStorage.setItem(
+        "sentra_user",
+        JSON.stringify(user)
+      );
 
-    alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
-  }
-});
+      window.location.href =
+        "pages/main.html";
+
+    }else{
+
+      alert("ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง");
+    }
+  });
+}
+
+/* ========================= */
+/* MOBILE SIDEBAR */
+/* ========================= */
+
+const mobileMenuBtn =
+  document.getElementById("mobileMenuBtn");
+
+const mobileSidebar =
+  document.getElementById("mobileSidebar");
+
+const mobileOverlay =
+  document.getElementById("mobileOverlay");
+
+if(
+  mobileMenuBtn &&
+  mobileSidebar &&
+  mobileOverlay
+){
+
+  mobileMenuBtn.addEventListener("click",()=>{
+
+    mobileSidebar.classList.toggle("active");
+
+    mobileOverlay.classList.toggle("active");
+  });
+
+  mobileOverlay.addEventListener("click",()=>{
+
+    mobileSidebar.classList.remove("active");
+
+    mobileOverlay.classList.remove("active");
+  });
+}

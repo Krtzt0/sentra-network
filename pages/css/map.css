@@ -1,0 +1,805 @@
+
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+    }
+
+    :root{
+      --white:#ffffff;
+      --line:rgba(255,255,255,.14);
+      --soft:rgba(255,255,255,.72);
+      --bg:#000000;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+
+      background:black;
+
+      color:white;
+
+      overflow-x:hidden;
+
+      font-family:"Kanit",sans-serif;
+    }
+
+    /* ========================= */
+    /* BG GRID */
+    /* ========================= */
+
+    body::before{
+
+      content:"";
+
+      position:fixed;
+
+      inset:0;
+
+      background-image:
+        radial-gradient(
+          rgba(255,255,255,.04) 1px,
+          transparent 1px
+        );
+
+      background-size:18px 18px;
+
+      opacity:.08;
+
+      pointer-events:none;
+
+      mask-image:
+        linear-gradient(
+          to bottom,
+          transparent,
+          black 10%,
+          black 90%,
+          transparent
+        );
+    }
+
+    /* ========================= */
+    /* TOPBAR */
+    /* ========================= */
+
+    .topbar{
+
+      position:fixed;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:92px;
+
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+
+      padding:0 38px;
+
+      background:
+        rgba(0,0,0,.96);
+
+      border-bottom:
+        1px solid rgba(255,255,255,.14);
+
+      backdrop-filter:blur(10px);
+
+      z-index:9999;
+    }
+
+    .topbar::after{
+
+      content:"";
+
+      position:absolute;
+
+      left:0;
+      bottom:-1px;
+
+      width:100%;
+      height:1px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(255,255,255,.25),
+          transparent
+        );
+    }
+
+    /* LEFT */
+
+    .top-left{
+
+      display:flex;
+      align-items:center;
+
+      gap:16px;
+    }
+
+    .top-logo{
+
+      width:52px;
+      height:52px;
+
+      object-fit:contain;
+    }
+
+    .top-info{
+      display:flex;
+      flex-direction:column;
+    }
+
+    .network-title{
+
+      font-family:'Orbitron',sans-serif;
+
+      font-size:18px;
+      font-weight:700;
+
+      letter-spacing:1px;
+
+      line-height:1;
+    }
+
+    .network-subtitle{
+
+      font-size:12px;
+
+      color:
+        rgba(255,255,255,.76);
+
+      margin-top:4px;
+    }
+
+    /* NAV */
+
+    .top-nav{
+      display:flex;
+      align-items:center;
+    }
+
+    .nav-group{
+
+      display:flex;
+      align-items:center;
+
+      gap:24px;
+    }
+
+    .nav-link{
+
+      color:
+        rgba(255,255,255,.62);
+
+      text-decoration:none;
+
+      font-size:14px;
+      font-weight:500;
+
+      transition:.25s;
+    }
+
+    .nav-link:hover{
+      color:white;
+    }
+
+    .nav-link.active{
+
+      color:white;
+
+      font-weight:700;
+    }
+
+    .nav-divider{
+
+      width:1px;
+      height:18px;
+
+      background:
+        rgba(255,255,255,.34);
+    }
+
+    /* ========================= */
+    /* MAIN */
+    /* ========================= */
+
+    .map-section{
+
+      width:100%;
+      min-height:100vh;
+
+      padding:
+        150px
+        60px
+        60px;
+
+      position:relative;
+    }
+
+    /* ========================= */
+    /* TITLE */
+    /* ========================= */
+
+    .map-title{
+
+  font-family:'Orbitron',sans-serif;
+
+  text-align:center;
+
+  font-size:56px;
+  font-weight:800;
+
+  letter-spacing:2px;
+
+  line-height:1.1;
+
+  margin-bottom:34px;
+
+  text-transform:uppercase;
+}
+
+    /* ========================= */
+    /* MAP WRAP */
+    /* ========================= */
+
+    .map-wrap{
+
+      position:relative;
+
+      width:100%;
+      max-width:1500px;
+
+      margin:auto;
+
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    /* MAP IMAGE */
+
+    .world-map{
+
+      width:100%;
+
+      object-fit:contain;
+
+      opacity:.92;
+
+      filter:
+        drop-shadow(0 0 30px rgba(255,255,255,.06));
+    }
+
+    /* ========================= */
+    /* SCAN LINE */
+    /* ========================= */
+
+    .scan-line{
+
+      position:absolute;
+
+      top:0;
+      left:0;
+
+      width:100%;
+      height:2px;
+
+      background:
+        linear-gradient(
+          to right,
+          transparent,
+          rgba(255,255,255,.85),
+          transparent
+        );
+
+      box-shadow:
+        0 0 18px rgba(255,255,255,.3);
+
+      animation:
+        scanMove 6s linear infinite;
+    }
+
+    @keyframes scanMove{
+
+      from{
+        transform:
+          translateY(0);
+      }
+
+      to{
+        transform:
+          translateY(720px);
+      }
+    }
+
+    /* ========================= */
+    /* CORNERS */
+    /* ========================= */
+
+    .map-wrap::before,
+    .map-wrap::after{
+
+      content:"";
+
+      position:absolute;
+
+      width:40px;
+      height:40px;
+
+      border:3px solid white;
+    }
+
+    .map-wrap::before{
+
+      top:-12px;
+      left:-12px;
+
+      border-right:none;
+      border-bottom:none;
+    }
+
+    .map-wrap::after{
+
+      right:-12px;
+      bottom:-12px;
+
+      border-left:none;
+      border-top:none;
+    }
+
+    /* ========================= */
+    /* MOBILE */
+    /* ========================= */
+
+    @media(max-width:1100px){
+
+      .map-title{
+        font-size:52px;
+      }
+    }
+
+    @media(max-width:768px){
+
+      .topbar{
+        padding:0 18px;
+      }
+
+      .top-nav{
+        display:none;
+      }
+
+      .map-section{
+
+        padding:
+          130px
+          20px
+          40px;
+      }
+
+      .map-title{
+
+        font-size:34px;
+
+        line-height:1.3;
+      }
+    }
+
+   /* ========================= */
+/* MAP RESPONSIVE */
+/* ========================= */
+
+@media(max-width:1200px){
+
+  .map-section{
+
+    padding:
+      140px
+      40px
+      50px;
+  }
+
+  .map-title{
+
+    font-size:48px;
+  }
+
+  .map-wrap{
+
+    max-width:100%;
+  }
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+  html,
+  body{
+    overflow-x:hidden;
+  }
+
+  /* TOPBAR */
+
+  .topbar{
+
+    height:74px;
+
+    padding:
+      0
+      16px;
+  }
+
+  .top-left{
+    gap:10px;
+  }
+
+  .top-logo{
+
+    width:38px;
+    height:38px;
+  }
+
+  .network-title{
+
+    font-size:12px;
+
+    letter-spacing:.5px;
+  }
+
+  .network-subtitle{
+    display:none;
+  }
+
+  .top-nav{
+    display:none;
+  }
+
+  /* MAP */
+
+  .map-section{
+
+    min-height:auto;
+
+    padding:
+      110px
+      16px
+      40px;
+  }
+
+  .map-title{
+
+    font-size:30px;
+
+    line-height:1.2;
+
+    letter-spacing:1px;
+
+    margin-bottom:24px;
+  }
+
+  .map-wrap{
+
+    border-radius:14px;
+
+    overflow:hidden;
+  }
+
+  .map-wrap::before,
+  .map-wrap::after{
+
+    width:22px;
+    height:22px;
+
+    border-width:2px;
+  }
+
+  .map-wrap::before{
+
+    top:8px;
+    left:8px;
+  }
+
+  .map-wrap::after{
+
+    right:8px;
+    bottom:8px;
+  }
+
+  .world-map{
+
+    width:100%;
+
+    min-height:220px;
+
+    object-fit:cover;
+  }
+
+  .scan-line{
+    display:none;
+  }
+}
+
+/* ========================= */
+/* SMALL MOBILE */
+/* ========================= */
+
+@media(max-width:480px){
+
+  .map-title{
+
+    font-size:24px;
+
+    line-height:1.3;
+  }
+
+  .world-map{
+
+    min-height:180px;
+  }
+}
+
+/* ========================= */
+/* MOBILE SIDEBAR */
+/* ========================= */
+
+.mobile-menu-btn{
+  display:none;
+}
+
+.mobile-sidebar{
+
+  position:fixed;
+
+  top:0;
+  right:-320px;
+
+  width:290px;
+  height:100vh;
+
+  background:
+    rgba(0,0,0,.96);
+
+  backdrop-filter:blur(14px);
+
+  border-left:
+    1px solid rgba(255,255,255,.12);
+
+  padding:26px;
+
+  z-index:10002;
+
+  transition:.35s ease;
+
+  display:flex;
+  flex-direction:column;
+}
+
+.mobile-overlay{
+
+  position:fixed;
+
+  inset:0;
+
+  background:
+    rgba(0,0,0,.55);
+
+  backdrop-filter:blur(2px);
+
+  z-index:10000;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:.3s;
+}
+
+.mobile-sidebar.active{
+  right:0;
+}
+
+.mobile-overlay.active{
+
+  opacity:1;
+
+  pointer-events:auto;
+}
+
+/* ========================= */
+/* MOBILE */
+/* ========================= */
+
+@media(max-width:768px){
+
+  /* HIDE DESKTOP RIGHT */
+
+  .top-right{
+    display:none;
+  }
+
+  /* MENU BUTTON */
+
+  .mobile-menu-btn{
+
+    position:fixed;
+
+    top:18px;
+    right:16px;
+
+    width:46px;
+    height:46px;
+
+    border:none;
+    border-radius:12px;
+
+    background:
+      rgba(255,255,255,.08);
+
+    color:white;
+
+    font-size:24px;
+
+    backdrop-filter:blur(10px);
+
+    z-index:10001;
+
+    cursor:pointer;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+
+  /* SIDEBAR */
+
+  .mobile-sidebar{
+
+    position:fixed;
+
+    top:0;
+    right:-320px;
+
+    width:290px;
+    height:100vh;
+
+    background:
+      rgba(0,0,0,.96);
+
+    backdrop-filter:blur(14px);
+
+    border-left:
+      1px solid rgba(255,255,255,.12);
+
+    padding:26px;
+
+    z-index:10002;
+
+    transition:.35s ease;
+
+    display:flex;
+    flex-direction:column;
+  }
+
+  .mobile-sidebar.active{
+    right:0;
+  }
+
+  /* HEADER */
+
+  .mobile-sidebar-header{
+
+    display:flex;
+    align-items:center;
+
+    gap:14px;
+
+    margin-bottom:34px;
+  }
+
+  .mobile-sidebar-logo{
+
+    width:52px;
+    height:52px;
+
+    object-fit:contain;
+  }
+
+  .mobile-sidebar-title{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:18px;
+
+    letter-spacing:1px;
+  }
+
+  .mobile-sidebar-subtitle{
+
+    font-size:11px;
+
+    color:
+      rgba(255,255,255,.6);
+  }
+
+  /* NAV */
+
+  .mobile-nav{
+
+    display:flex;
+    flex-direction:column;
+
+    gap:10px;
+  }
+
+  .mobile-nav a{
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:15px;
+    font-weight:500;
+
+    padding:
+      14px
+      16px;
+
+    border:
+      1px solid rgba(255,255,255,.08);
+
+    border-radius:12px;
+
+    background:
+      rgba(255,255,255,.03);
+
+    transition:.25s;
+  }
+
+  .mobile-nav a:hover{
+
+    background:
+      rgba(255,255,255,.08);
+  }
+
+  /* OVERLAY */
+
+  .mobile-overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+      rgba(0,0,0,.55);
+
+    backdrop-filter:blur(2px);
+
+    z-index:10000;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.3s;
+
+    display:block;
+  }
+
+  .mobile-overlay.active{
+
+    opacity:1;
+
+    pointer-events:auto;
+  }
+}
+
