@@ -1,5 +1,5 @@
 /* ========================= */
-/* UTC CLOCK */
+/* THAILAND CLOCK */
 /* ========================= */
 
 const utcClock =
@@ -11,20 +11,20 @@ function updateClock(){
 
   const now = new Date();
 
-  const hours =
-    String(now.getUTCHours())
-    .padStart(2,"0");
-
-  const minutes =
-    String(now.getUTCMinutes())
-    .padStart(2,"0");
-
-  const seconds =
-    String(now.getUTCSeconds())
-    .padStart(2,"0");
+  const thaiTime =
+    now.toLocaleTimeString(
+      "th-TH",
+      {
+        timeZone:"Asia/Bangkok",
+        hour:"2-digit",
+        minute:"2-digit",
+        second:"2-digit",
+        hour12:false
+      }
+    );
 
   utcClock.textContent =
-    `UTC ${hours}:${minutes}:${seconds}`;
+    ` ${thaiTime}`;
 }
 
 updateClock();
