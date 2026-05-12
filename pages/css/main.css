@@ -397,19 +397,34 @@ body{
   display:grid;
 
   grid-template-columns:
-    1fr
+    minmax(260px,420px)
     1px
-    1fr;
+    minmax(260px,420px);
 
-  gap:64px;
+  gap:32px;
+
+  justify-content:center;
 
   align-items:flex-start;
 
-  max-width:920px;
+  width:fit-content;
 
   margin:auto;
+  
+}
+.left-panel{
+
+  text-align:right;
+
+  padding-right:10px;
 }
 
+.right-panel{
+
+  text-align:left;
+
+  padding-left:10px;
+}
 .divider-line{
 
   width:1px;
