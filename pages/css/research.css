@@ -566,17 +566,9 @@
       }
     }
 
- /* ========================= */
-/* MOBILE MENU */
 /* ========================= */
-
-.mobile-menu-btn,
-.mobile-sidebar,
-.mobile-overlay{
-  display:none;
-}
-
-@media(max-width:768px){
+  /* BURGER */
+  /* ========================= */
 
   .mobile-menu-btn{
 
@@ -604,6 +596,8 @@
     display:flex;
     align-items:center;
     justify-content:center;
+
+    backdrop-filter:blur(10px);
   }
 
   .mobile-sidebar{
@@ -611,13 +605,13 @@
     position:fixed;
 
     top:0;
-    right:-260px;
+    right:-280px;
 
     width:250px;
     height:100vh;
 
     background:
-      rgba(0,0,0,.97);
+      rgba(0,0,0,.96);
 
     border-left:
       1px solid rgba(255,255,255,.1);
@@ -636,14 +630,43 @@
     right:0;
   }
 
+  .mobile-sidebar-header{
+
+    display:flex;
+    align-items:center;
+
+    gap:12px;
+
+    margin-bottom:28px;
+  }
+
+  .mobile-sidebar-logo{
+
+    width:44px;
+    height:44px;
+  }
+
+  .mobile-sidebar-title{
+
+    font-family:'Orbitron',sans-serif;
+
+    font-size:15px;
+  }
+
+  .mobile-sidebar-sub{
+
+    font-size:10px;
+
+    color:
+      rgba(255,255,255,.6);
+  }
+
   .mobile-nav{
 
     display:flex;
     flex-direction:column;
 
-    gap:12px;
-
-    margin-top:24px;
+    gap:10px;
   }
 
   .mobile-nav a{
@@ -663,6 +686,8 @@
 
     border:
       1px solid rgba(255,255,255,.08);
+
+    font-size:14px;
   }
 
   .mobile-overlay{
@@ -672,7 +697,7 @@
     inset:0;
 
     background:
-      rgba(0,0,0,.6);
+      rgba(0,0,0,.55);
 
     z-index:10001;
 
@@ -691,4 +716,3 @@
 
     pointer-events:auto;
   }
-}

@@ -730,6 +730,16 @@ body{
     opacity:.12;
   }
 
+   .left-panel,
+  .right-panel{
+
+    text-align:left;
+
+    padding-left:0;
+    padding-right:0;
+  }
+}
+
   /* ========================= */
   /* BURGER */
   /* ========================= */
@@ -880,7 +890,7 @@ body{
 
     pointer-events:auto;
   }
-}
+
 
 /* ========================= */
 /* SMALL MOBILE */
